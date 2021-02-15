@@ -42,7 +42,7 @@ Write down the `EXTERNAL-IP` of `ingress-nginx-controller` for the next command.
 
 ### Create an ingress rule
 
-In order to expose `gpip`, we need to create an ingress rule. The ingress rule should listen on the address [http://gpip.external-ip.nip.io](http://gpip.external-ip.nip.io), where `external-ip` is replaced with the `EXTERNAL-IP` address from the previous command.
+In order to expose `gpip`, we need to create an ingress rule. The ingress rule should listen on the address [http://gpip.external-ip.nip.io](http://gpip.external-ip.nip.io), where `external-ip` is replaced with the `EXTERNAL-IP` address from the previous task.
 
 Run the following to create your ingress rule:
 

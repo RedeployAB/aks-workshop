@@ -49,7 +49,7 @@ spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory # production
     #server: https://acme-staging-v02.api.letsencrypt.org/directory # staging
-    email: _YOUR_EMAIL_ # replace this with your email
+    email: <your-email> # replace this with your email address
     privateKeySecretRef:
       name: letsencrypt
     solvers:
@@ -68,7 +68,7 @@ kubectl apply -f letsencrypt-clusterissuer.yaml
 
 In order for `cert-manager` to issue a certificate from Let's Encrypt, we need to update our ingress resource.
 
-Our resource must contain the annotations `cert-manager.io/cluster-issuer: "letsencrypt"` and `kubernetes.io/ingress.class: nginx`. We also need to add a new `tls:` object inside `spec:` specifying the certificate location.
+Our resource must contain the annotations `cert-manager.io/cluster-issuer: "letsencrypt"` and `kubernetes.io/ingress.class: nginx`. We also need to add a new `tls` object inside `spec` specifying the certificate location.
 
 Use the following command to edit the ingress:
 
@@ -88,6 +88,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: "letsencrypt"
+  # Leave this part as is:
   creationTimestamp: "2021-02-15T18:45:47Z"
   generation: 1
   name: gpip
@@ -101,7 +102,7 @@ spec:
   - hosts:
     - gpip.<external-ip>.nip.io # same as previous host
     secretName: gpip-tls-secret
-  # Leave the rest of the file intact
+  # Leave the rest of the file intact:
   rules:
   - host: gpip.<external-ip>.nip.io
     http:
