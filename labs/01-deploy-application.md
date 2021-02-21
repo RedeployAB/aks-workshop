@@ -20,22 +20,6 @@ git clone https://github.com/RedeployAB/gpip.git
 cd gpip
 ```
 
-<!--### Add build stage to Dockerfile
-
-Edit the `Dockerfile` so it supports building the application:
-
-```Dockerfile
-...
-
-# Build the application binaries
-ENV GOOS=linux GOARCH=amd64
-COPY . .
-RUN mkdir -p release; \
-    go build -o release/gpip-$VERSION-$GOOS-$GOARCH -ldflags="-w -s" -trimpath cmd/gpip/main.go
-
-...
-```-->
-
 ### Build Docker image
 
 Build gpip's Docker image by running the following:
@@ -65,6 +49,8 @@ docker image tag gpip $acr.azurecr.io/gpip:$gpip_version
 docker image tag gpip $acr.azurecr.io/gpip:latest
 ```
 
+> **Note:** If `--all-tags` isn't available for you, you can push each image tag instead.
+
 When this is done, we can proceed with pushing the image to our repository:
 
 ```bash
@@ -91,12 +77,12 @@ kubectl create deployment gpip \
 Verify that the deployment was successful:
 
 ```bash
-kubectl get deployments
+kubectl get deployments --namespace=gpip
 ```
 
 ### Test the application within the cluster
 
-Make the application discoverable by creating a service:
+Make the application discoverable within the cluster by creating a service:
 
 ```bash
 kubectl create service clusterip gpip --tcp=80:5050 --namespace=gpip
@@ -112,7 +98,7 @@ curl gpip
 After verifying that the service works, you can delete the `curl` pod:
 
 ```bash
-kubectl delete pod curl -n gpip
+kubectl delete pod curl --namespace=gpip
 ```
 
 ## Summary

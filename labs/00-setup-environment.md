@@ -91,6 +91,8 @@ Install Kubectl by running the following:
 az aks install-cli --client-version $version
 ```
 
+> **Note:** If the following commands displays a version before `1.20`, re-run the previous command and install version `1.20` or later in order to finish the labs.
+
 Verify that Kubectl has been installed correctly:
 
 ```bash

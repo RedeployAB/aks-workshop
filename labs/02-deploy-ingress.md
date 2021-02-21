@@ -12,11 +12,15 @@ Before you begin with this lab, you have to complete the previous one:
 
 ### Deploy an ingress controller
 
+There are many different ingress controllers to pick for your cluster. We will be using Nginx due to its common use.
+
 Deploy the ingress controller by running the command below. The deployment file includes the necessary namespace as well.
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.44.0/deploy/static/provider/cloud/deploy.yaml
 ```
+
+> **Note:** The option `-n` is a shorter alternative to `--namespace`.
 
 Verify that the ingress controller has been deployed correctly:
 
@@ -43,6 +47,8 @@ Write down the `EXTERNAL-IP` of `ingress-nginx-controller` for the next command.
 ### Create an ingress rule
 
 In order to expose `gpip`, we need to create an ingress rule. The ingress rule should listen on the address [http://gpip.external-ip.nip.io](http://gpip.external-ip.nip.io), where `external-ip` is replaced with the `EXTERNAL-IP` address from the previous task.
+
+> **Note:** The following command requires `kubectl` version `1.20` or later to work.
 
 Run the following to create your ingress rule:
 
