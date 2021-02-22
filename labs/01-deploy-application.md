@@ -34,7 +34,7 @@ Verify that the container runs as expected:
 ```bash
 # Run the container
 docker run -d -p 5050:5050 --name gpip gpip
-curl localhost:8080
+curl localhost:5050
 
 # Stop the container
 docker stop gpip
