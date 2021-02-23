@@ -17,9 +17,8 @@ We will start with going through the basic concepts of Kubernetes and deploy you
 
 In this session, we will dig into deploying applications and configuring clusters using a GitOps workflow.
 
-* Enabling GitOps for Kubernetes
-* Scaling and monitoring applications
-* Troubleshooting applications
+* [Enabling GitOps with Flux](./labs/04-setup-flux.md)
+* [Scaling and monitoring applications](./labs/05-scale-and-monitor.md)
 
 ## About Redeploy
 
