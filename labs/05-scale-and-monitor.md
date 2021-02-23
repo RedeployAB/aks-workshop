@@ -58,7 +58,7 @@ Scroll down to the **Insights** menu item under **Monitoring**. Review your clus
 
 Change directory to your `flux-cluster` repository location.
 
-Create a file called `logreader-rbac.yaml` under `./clusters/lab-clusters/` and past the following YAML:
+Create a file called `logreader-rbac.yaml` under `./clusters/lab-clusters/` and paste the following YAML:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
